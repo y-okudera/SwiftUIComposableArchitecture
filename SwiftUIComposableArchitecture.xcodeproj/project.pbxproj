@@ -97,11 +97,9 @@
 		B687832926EB921A00290988 /* SwiftUIComposableArchitecture */ = {
 			isa = PBXGroup;
 			children = (
-				B687832A26EB921A00290988 /* SwiftUIComposableArchitectureApp.swift */,
-				B687832C26EB921A00290988 /* ContentView.swift */,
-				B687832E26EB921A00290988 /* Assets.xcassets */,
-				B687833326EB921A00290988 /* Info.plist */,
-				B687833026EB921A00290988 /* Preview Content */,
+				B687835E26EB9E1800290988 /* Application */,
+				B687836026EB9ED700290988 /* Presentation */,
+				B687835F26EB9E3300290988 /* Resources */,
 			);
 			path = SwiftUIComposableArchitecture;
 			sourceTree = "<group>";
@@ -130,6 +128,32 @@
 				B687834926EB921A00290988 /* Info.plist */,
 			);
 			path = SwiftUIComposableArchitectureUITests;
+			sourceTree = "<group>";
+		};
+		B687835E26EB9E1800290988 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B687833326EB921A00290988 /* Info.plist */,
+				B687832A26EB921A00290988 /* SwiftUIComposableArchitectureApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B687835F26EB9E3300290988 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B687832E26EB921A00290988 /* Assets.xcassets */,
+				B687833026EB921A00290988 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B687836026EB9ED700290988 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B687832C26EB921A00290988 /* ContentView.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,10 +450,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIComposableArchitecture/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIComposableArchitecture/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = B8PR34D6DP;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUIComposableArchitecture/Info.plist;
+				INFOPLIST_FILE = SwiftUIComposableArchitecture/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,10 +472,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIComposableArchitecture/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIComposableArchitecture/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = B8PR34D6DP;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUIComposableArchitecture/Info.plist;
+				INFOPLIST_FILE = SwiftUIComposableArchitecture/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
