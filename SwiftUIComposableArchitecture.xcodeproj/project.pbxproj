@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B679B12126EE1155004D8E6A /* CardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B12026EE1155004D8E6A /* CardsTests.swift */; };
 		B687832B26EB921A00290988 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B687832A26EB921A00290988 /* App.swift */; };
 		B687832F26EB921A00290988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B687832E26EB921A00290988 /* Assets.xcassets */; };
 		B687833226EB921A00290988 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B687833126EB921A00290988 /* Preview Assets.xcassets */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B679B12026EE1155004D8E6A /* CardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTests.swift; sourceTree = "<group>"; };
 		B687832726EB921A00290988 /* SwiftUIComposableArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIComposableArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B687832A26EB921A00290988 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		B687832E26EB921A00290988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B679B11F26EE110E004D8E6A /* CardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B679B12026EE1155004D8E6A /* CardsTests.swift */,
+			);
+			path = CardsTests;
+			sourceTree = "<group>";
+		};
 		B687831E26EB921A00290988 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +169,7 @@
 		B687833B26EB921A00290988 /* SwiftUIComposableArchitectureTests */ = {
 			isa = PBXGroup;
 			children = (
+				B679B11F26EE110E004D8E6A /* CardsTests */,
 				B687833E26EB921A00290988 /* Info.plist */,
 			);
 			path = SwiftUIComposableArchitectureTests;
@@ -473,6 +484,7 @@
 					};
 					B687833726EB921A00290988 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 						TestTargetID = B687832626EB921A00290988;
 					};
 					B687834226EB921A00290988 = {
@@ -571,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B679B12126EE1155004D8E6A /* CardsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +788,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8PR34D6DP;
 				INFOPLIST_FILE = SwiftUIComposableArchitectureTests/Info.plist;
@@ -786,6 +800,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.yuoku.PartialCopyableMenu.SwiftUIComposableArchitectureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIComposableArchitecture.app/SwiftUIComposableArchitecture";
@@ -797,6 +812,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8PR34D6DP;
 				INFOPLIST_FILE = SwiftUIComposableArchitectureTests/Info.plist;
