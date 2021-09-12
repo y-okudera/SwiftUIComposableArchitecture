@@ -104,3 +104,6 @@ iOSInjectionProject/
 
 # Provisioning profile
 *.mobileprovision
+
+# SnapshotTesting
+**/__Snapshots__/*

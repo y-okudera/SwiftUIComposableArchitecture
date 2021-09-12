@@ -1,5 +1,5 @@
 //
-//  CardsTests.swift
+//  CardsCoreTests.swift
 //  SwiftUIComposableArchitectureTests
 //
 //  Created by Yuki Okudera on 2021/09/12.
@@ -9,7 +9,7 @@
 import ComposableArchitecture
 import XCTest
 
-final class CardsTests: XCTestCase {
+final class CardsCoreTests: XCTestCase {
 
     func testOnAppear() {
 
