@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SwiftUIComposableArchitecture
+
+  Created by Yuki Okudera on 2021/09/11.
+  
+*/
+
+"Cards" = "カード一覧";
+"Favorites" = "お気に入り";
