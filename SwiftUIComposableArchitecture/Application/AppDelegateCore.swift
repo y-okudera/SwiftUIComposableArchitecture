@@ -1,5 +1,5 @@
 //
-//  AppDelegateState.swift
+//  AppDelegateCore.swift
 //  SwiftUIComposableArchitecture
 //
 //  Created by Yuki Okudera on 2021/09/11.
@@ -8,29 +8,33 @@
 import ComposableArchitecture
 import SwiftUI
 
-// MARK: - State
+enum AppDelegateCore {
 
-struct AppDelegateState: Equatable {}
+    // MARK: - State
 
-// MARK: - Action
+    struct State: Equatable {}
 
-enum AppDelegateAction: Equatable {
-    case didFinishLaunching
-}
+    // MARK: - Action
 
-// MARK: - Environment
-
-struct AppDelegateEnvironment {
-    var localDatabaseClient: LocalDatabaseClient
-}
-
-// MARK: - Reducer
-
-let appDelegateReducer = Reducer<AppDelegateState, AppDelegateAction, AppDelegateEnvironment> { _, action, environment in
-    switch action {
-    case .didFinishLaunching:
-        _ = environment.localDatabaseClient
-            .migrate()
-        return .none
+    enum Action: Equatable {
+        case didFinishLaunching
     }
+
+    // MARK: - Environment
+
+    struct Environment {
+        var localDatabaseClient: LocalDatabaseClient
+    }
+
+    // MARK: - Reducer
+
+    static let reducer =
+        Reducer<State, Action, Environment> { _, action, environment in
+            switch action {
+            case .didFinishLaunching:
+                _ = environment.localDatabaseClient
+                    .migrate()
+                return .none
+            }
+        }
 }

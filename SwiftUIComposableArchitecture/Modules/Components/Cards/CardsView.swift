@@ -9,7 +9,7 @@ import ComposableArchitecture
 import SwiftUI
 
 struct CardsView: View {
-    var store: Store<CardsState, CardsAction>
+    var store: Store<CardsCore.State, CardsCore.Action>
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -23,7 +23,7 @@ struct CardsView: View {
                                     style: .large,
                                     isAnimating: viewStore.binding(
                                         get: { $0.isLoading },
-                                        send: CardsAction.loadingActive
+                                        send: CardsCore.Action.loadingActive
                                     )
                                 )
                                 Spacer()
@@ -35,7 +35,7 @@ struct CardsView: View {
                                     style: .medium,
                                     isAnimating: viewStore.binding(
                                         get: { $0.isLoadingPage },
-                                        send: CardsAction.loadingPageActive
+                                        send: CardsCore.Action.loadingPageActive
                                     )
                                 )
                             }
@@ -56,7 +56,7 @@ struct CardsView: View {
 
 extension CardsView {
     @ViewBuilder
-    private func itemsList(_ viewStore: ViewStore<CardsState, CardsAction>) -> some View {
+    private func itemsList(_ viewStore: ViewStore<CardsCore.State, CardsCore.Action>) -> some View {
         if #available(iOS 14.0, *) {
             let gridItem = GridItem(.flexible(minimum: 80, maximum: 180))
             LazyVGrid(
@@ -73,11 +73,11 @@ extension CardsView {
     }
 
     @ViewBuilder
-    private func cardsList(_ viewStore: ViewStore<CardsState, CardsAction>) -> some View {
+    private func cardsList(_ viewStore: ViewStore<CardsCore.State, CardsCore.Action>) -> some View {
         ForEachStore(
             store.scope(
                 state: { $0.cards },
-                action: CardsAction.card(id:action:)
+                action: CardsCore.Action.card(id:action:)
             ),
             content: { cardStore in
                 WithViewStore(cardStore) { cardViewStore in
@@ -109,14 +109,14 @@ struct CardsView_Previews: PreviewProvider {
                     initialState: .init(
                         cards: .init(
                             uniqueElements: Cards.mock.cards.map {
-                                CardDetailState(
+                                CardDetailCore.State(
                                     id: .init(),
                                     card: $0
                                 )
                             }
                         )
                     ),
-                    reducer: cardsReducer,
+                    reducer: CardsCore.reducer,
                     environment: .init(
                         apiClient: .mockPreview(),
                         localDatabaseClient: .mockPreview(),

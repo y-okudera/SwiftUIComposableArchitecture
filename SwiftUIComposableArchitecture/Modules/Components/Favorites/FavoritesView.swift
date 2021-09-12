@@ -9,7 +9,7 @@ import ComposableArchitecture
 import SwiftUI
 
 struct FavoritesView: View {
-    var store: Store<FavoritesState, FavoritesAction>
+    var store: Store<FavoritesCore.State, FavoritesCore.Action>
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -31,7 +31,7 @@ struct FavoritesView: View {
 
 extension FavoritesView {
     @ViewBuilder
-    private func itemsList(_ viewStore: ViewStore<FavoritesState, FavoritesAction>) -> some View {
+    private func itemsList(_ viewStore: ViewStore<FavoritesCore.State, FavoritesCore.Action>) -> some View {
         if #available(iOS 14.0, *) {
             let gridItem = GridItem(.flexible(minimum: 80, maximum: 180))
             LazyVGrid(
@@ -48,11 +48,11 @@ extension FavoritesView {
     }
 
     @ViewBuilder
-    private func cardsList(_ viewStore: ViewStore<FavoritesState, FavoritesAction>) -> some View {
+    private func cardsList(_ viewStore: ViewStore<FavoritesCore.State, FavoritesCore.Action>) -> some View {
         ForEachStore(
             store.scope(
                 state: { $0.cards },
-                action: FavoritesAction.card(id:action:)
+                action: FavoritesCore.Action.card(id:action:)
             ),
             content: { cardStore in
                 WithViewStore(cardStore) { cardViewStore in
@@ -81,14 +81,14 @@ struct FavoritesView_Previews: PreviewProvider {
                     initialState: .init(
                         cards: .init(
                             uniqueElements: Cards.mock.cards.map {
-                                CardDetailState(
+                                CardDetailCore.State(
                                     id: .init(),
                                     card: $0
                                 )
                             }
                         )
                     ),
-                    reducer: favoritesReducer,
+                    reducer: FavoritesCore.reducer,
                     environment: .init(
                         localDatabaseClient: .mockPreview(),
                         mainQueue: DispatchQueue.main.eraseToAnyScheduler(),

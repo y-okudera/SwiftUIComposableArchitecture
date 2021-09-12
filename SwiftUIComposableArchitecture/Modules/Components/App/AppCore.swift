@@ -7,107 +7,112 @@
 
 import ComposableArchitecture
 
-// MARK: - State
+enum AppCore {
 
-struct AppState: Equatable {
-    var appDelegateState = AppDelegateState()
-    var cardsState = CardsState()
-    var favoritesState = FavoritesState()
+    // MARK: - State
 
-    enum Tab {
-        case cards
-        case favorites
+    struct State: Equatable {
+        var appDelegateState = AppDelegateCore.State()
+        var cardsState = CardsCore.State()
+        var favoritesState = FavoritesCore.State()
+
+        enum Tab {
+            case cards
+            case favorites
+        }
+
+        var selectedTab = Tab.cards
     }
 
-    var selectedTab = Tab.cards
-}
+    // MARK: - Action
 
-// MARK: - Action
+    enum Action {
+        case appDelegate(AppDelegateCore.Action)
+        case cards(CardsCore.Action)
+        case favorites(FavoritesCore.Action)
 
-enum AppAction {
-    case appDelegate(AppDelegateAction)
-    case cards(CardsAction)
-    case favorites(FavoritesAction)
+        case selectedTabChange(State.Tab)
+    }
 
-    case selectedTabChange(AppState.Tab)
-}
+    // MARK: - Environment
 
-// MARK: - Environment
+    struct Environment {
+        var localDatabaseClient: LocalDatabaseClient
+        var apiClient: ApiClient
+        var mainQueue: AnySchedulerOf<DispatchQueue>
+        var uuid: () -> UUID
+    }
 
-struct AppEnvironment {
-    var localDatabaseClient: LocalDatabaseClient
-    var apiClient: ApiClient
-    var mainQueue: AnySchedulerOf<DispatchQueue>
-    var uuid: () -> UUID
-}
+    // MARK: - Reducer
 
-// MARK: - Reducer
-
-let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
-    appDelegateReducer.pullback(
-        state: \AppState.appDelegateState,
-        action: /AppAction.appDelegate,
-        environment: {
-            AppDelegateEnvironment(
-                localDatabaseClient: $0.localDatabaseClient
-            )
-        }
-    ),
-    cardsReducer.pullback(
-        state: \AppState.cardsState,
-        action: /AppAction.cards,
-        environment: { environment in
-            CardsEnvironment(
-                apiClient: environment.apiClient,
-                localDatabaseClient: environment.localDatabaseClient,
-                mainQueue: environment.mainQueue,
-                uuid: environment.uuid
-            )
-        }
-    ),
-    favoritesReducer.pullback(
-        state: \AppState.favoritesState,
-        action: /AppAction.favorites,
-        environment: { environment in
-            FavoritesEnvironment(
-                localDatabaseClient: environment.localDatabaseClient,
-                mainQueue: environment.mainQueue,
-                uuid: environment.uuid
-            )
-        }
-    ),
-    .init { state, action, environment in
-
-        switch action {
-        case .appDelegate(_):
-            return .none
-
-        // Update favorites on Cards State
-        case .cards(.card(id: _, action: .toggleFavoriteResponse(.success(let favorites)))):
-            state.favoritesState.cards = .init(
-                uniqueElements: favorites.map {
-                    CardDetailState(
-                        id: environment.uuid(),
-                        card: $0
+    static let reducer: Reducer<State, Action, Environment> =
+        .combine(
+            AppDelegateCore.reducer.pullback(
+                state: \State.appDelegateState,
+                action: /Action.appDelegate,
+                environment: {
+                    AppDelegateCore.Environment(
+                        localDatabaseClient: $0.localDatabaseClient
                     )
                 }
-            )
-            return .none
+            ),
+            CardsCore.reducer.pullback(
+                state: \State.cardsState,
+                action: /Action.cards,
+                environment: { environment in
+                    CardsCore.Environment(
+                        apiClient: environment.apiClient,
+                        localDatabaseClient: environment.localDatabaseClient,
+                        mainQueue: environment.mainQueue,
+                        uuid: environment.uuid
+                    )
+                }
+            ),
+            FavoritesCore.reducer.pullback(
+                state: \State.favoritesState,
+                action: /Action.favorites,
+                environment: { environment in
+                    FavoritesCore.Environment(
+                        localDatabaseClient: environment.localDatabaseClient,
+                        mainQueue: environment.mainQueue,
+                        uuid: environment.uuid
+                    )
+                }
+            ),
+            .init { state, action, environment in
 
-        case .cards:
-            return .none
+                switch action {
+                case .appDelegate(_):
+                    return .none
 
-        // Update favorites on Favorites State
-        case .favorites(.card(id: _, action: .toggleFavoriteResponse(.success(let favorites)))):
-            state.cardsState.favorites = favorites
-            return .none
+                // Update favorites on Cards State
+                case .cards(.card(id: _, action: .toggleFavoriteResponse(.success(let favorites)))):
+                    state.favoritesState.cards = .init(
+                        uniqueElements: favorites.map {
+                            CardDetailCore.State(
+                                id: environment.uuid(),
+                                card: $0
+                            )
+                        }
+                    )
+                    return .none
 
-        case .favorites:
-            return .none
+                case .cards:
+                    return .none
 
-        case .selectedTabChange(let selectedTab):
-            state.selectedTab = selectedTab
-            return .none
-        }
-    }
-)
+                // Update favorites on Favorites State
+                case .favorites(.card(id: _, action: .toggleFavoriteResponse(.success(let favorites)))):
+                    state.cardsState.favorites = favorites
+                    return .none
+
+                case .favorites:
+                    return .none
+
+                case .selectedTabChange(let selectedTab):
+                    state.selectedTab = selectedTab
+                    return .none
+                }
+            }
+        )
+
+}

@@ -13,7 +13,7 @@ import SwiftUI
 final class AppDelegate: NSObject, UIApplicationDelegate {
     let store = Store(
         initialState: .init(),
-        reducer: appReducer,
+        reducer: AppCore.reducer,
         environment: .live
     )
     lazy var viewStore = ViewStore(
@@ -42,9 +42,9 @@ struct SwiftUIComposableArchitectureApp: App {
     }
 }
 
-// MARK: AppEnvironment live
+// MARK: AppCore.Environment live
 
-extension AppEnvironment {
+extension AppCore.Environment {
     static let live = Self(
         localDatabaseClient: .live,
         apiClient: .live,

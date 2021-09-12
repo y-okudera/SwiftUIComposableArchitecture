@@ -9,14 +9,14 @@ import ComposableArchitecture
 import SwiftUI
 
 struct AppView: View {
-    let store: Store<AppState, AppAction>
+    let store: Store<AppCore.State, AppCore.Action>
 
     var body: some View {
         WithViewStore(store) { viewStore in
             TabView(
                 selection: viewStore.binding(
                     get: { $0.selectedTab },
-                    send: AppAction.selectedTabChange
+                    send: AppCore.Action.selectedTabChange
                 ),
                 content: {
                     Group {
@@ -25,13 +25,13 @@ struct AppView: View {
                                 Image(systemName: "greetingcard")
                                 Text(LocalizedStringKey("Cards"))
                             }
-                            .tag(AppState.Tab.cards)
+                            .tag(AppCore.State.Tab.cards)
                         FavoritesView(store: favoritesStore)
                             .tabItem {
                                 Image(systemName: "star")
                                 Text(LocalizedStringKey("Favorites"))
                             }
-                            .tag(AppState.Tab.favorites)
+                            .tag(AppCore.State.Tab.favorites)
                     }
                 }
             )
@@ -42,17 +42,17 @@ struct AppView: View {
 // MARK: - Store inits
 
 extension AppView {
-    private var cardsStore: Store<CardsState, CardsAction> {
+    private var cardsStore: Store<CardsCore.State, CardsCore.Action> {
         return store.scope(
             state: { $0.cardsState },
-            action: AppAction.cards
+            action: AppCore.Action.cards
         )
     }
 
-    private var favoritesStore: Store<FavoritesState, FavoritesAction> {
+    private var favoritesStore: Store<FavoritesCore.State, FavoritesCore.Action> {
         return store.scope(
             state: { $0.favoritesState },
-            action: AppAction.favorites
+            action: AppCore.Action.favorites
         )
     }
 }
@@ -63,8 +63,8 @@ struct AppView_Previews: PreviewProvider {
     static var previews: some View {
         AppView(
             store: .init(
-                initialState: AppState(),
-                reducer: appReducer,
+                initialState: AppCore.State(),
+                reducer: AppCore.reducer,
                 environment: .init(
                     localDatabaseClient: .mockPreview(),
                     apiClient: .mockPreview(),

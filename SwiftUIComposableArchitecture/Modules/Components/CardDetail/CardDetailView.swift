@@ -10,7 +10,7 @@ import Kingfisher
 import SwiftUI
 
 struct CardDetailView: View {
-    let store: Store<CardDetailState, CardDetailAction>
+    let store: Store<CardDetailCore.State, CardDetailCore.Action>
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -41,7 +41,7 @@ struct CardDetailView: View {
 
 extension CardDetailView {
     @ViewBuilder
-    private func favoriteButton(_ viewStore: ViewStore<CardDetailState, CardDetailAction>) -> some View {
+    private func favoriteButton(_ viewStore: ViewStore<CardDetailCore.State, CardDetailCore.Action>) -> some View {
         WithViewStore(store.scope(state: { $0.isFavorite })) { favoriteViewStore in
             FavoriteButton(
                 action: { viewStore.send(.toggleFavorite) },
@@ -58,11 +58,11 @@ struct CardDetailView_Previews: PreviewProvider {
         NavigationView {
             CardDetailView(
                 store: .init(
-                    initialState: CardDetailState(
+                    initialState: CardDetailCore.State(
                         id: .init(),
                         card: .mock1
                     ),
-                    reducer: cardDetailReducer,
+                    reducer: CardDetailCore.reducer,
                     environment: .init(
                         localDatabaseClient: .mockPreview(),
                         mainQueue: DispatchQueue.main.eraseToAnyScheduler()

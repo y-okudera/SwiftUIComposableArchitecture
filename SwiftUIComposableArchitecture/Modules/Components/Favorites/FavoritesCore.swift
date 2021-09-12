@@ -7,82 +7,86 @@
 
 import ComposableArchitecture
 
-// MARK: - State
+enum FavoritesCore {
 
-struct FavoritesState: Equatable {
-    var cards = IdentifiedArrayOf<CardDetailState>()
-}
+    // MARK: - State
 
-// MARK: - Action
+    struct State: Equatable {
+        var cards = IdentifiedArrayOf<CardDetailCore.State>()
+    }
 
-enum FavoritesAction: Equatable {
-    case retrieveFavorites
-    case favoritesResponse(Result<[Card], Never>)
+    // MARK: - Action
 
-    case card(id: UUID, action: CardDetailAction)
+    enum Action: Equatable {
+        case retrieveFavorites
+        case favoritesResponse(Result<[Card], Never>)
 
-    case onAppear
-    case onDisappear
-}
+        case card(id: UUID, action: CardDetailCore.Action)
 
-// MARK: - Environment
+        case onAppear
+        case onDisappear
+    }
 
-struct FavoritesEnvironment {
-    var localDatabaseClient: LocalDatabaseClient
-    var mainQueue: AnySchedulerOf<DispatchQueue>
-    var uuid: () -> UUID
-}
+    // MARK: - Environment
 
-// MARK: - Reducer
+    struct Environment {
+        var localDatabaseClient: LocalDatabaseClient
+        var mainQueue: AnySchedulerOf<DispatchQueue>
+        var uuid: () -> UUID
+    }
 
-let favoritesReducer =
-    Reducer<FavoritesState, FavoritesAction, FavoritesEnvironment>.combine(
-        cardDetailReducer.forEach(
-            state: \.cards,
-            action: /FavoritesAction.card(id:action:),
-            environment: { environment in
-                .init(
-                    localDatabaseClient: environment.localDatabaseClient,
-                    mainQueue: environment.mainQueue
-                )
+    // MARK: - Reducer
+
+    static let reducer =
+        Reducer<FavoritesCore.State, FavoritesCore.Action, FavoritesCore.Environment>.combine(
+            CardDetailCore.reducer.forEach(
+                state: \.cards,
+                action: /FavoritesCore.Action.card(id:action:),
+                environment: { environment in
+                    .init(
+                        localDatabaseClient: environment.localDatabaseClient,
+                        mainQueue: environment.mainQueue
+                    )
+                }
+            ),
+            .init { state, action, environment in
+
+                struct FavoritesCancelId: Hashable {}
+
+                switch action {
+                case .onAppear:
+                    guard state.cards.isEmpty else { return .none }
+                    return .init(value: .retrieveFavorites)
+
+                case .retrieveFavorites:
+                    return environment.localDatabaseClient
+                        .fetchFavoriteCards()
+                        .receive(on: environment.mainQueue)
+                        .catchToEffect()
+                        .map(FavoritesCore.Action.favoritesResponse)
+                        .cancellable(id: FavoritesCancelId())
+
+                case .favoritesResponse(.success(let favorites)):
+                    state.cards = .init(
+                        uniqueElements: favorites.map {
+                            CardDetailCore.State(
+                                id: environment.uuid(),
+                                card: $0
+                            )
+                        }
+                    )
+                    return .none
+
+                case .card(id: _, action: .onDisappear):
+                    return .init(value: .retrieveFavorites)
+
+                case .card(id: _, action: _):
+                    return .none
+
+                case .onDisappear:
+                    return .cancel(id: FavoritesCancelId())
+                }
             }
-        ),
-        .init { state, action, environment in
+        )
 
-            struct FavoritesCancelId: Hashable {}
-
-            switch action {
-            case .onAppear:
-                guard state.cards.isEmpty else { return .none }
-                return .init(value: .retrieveFavorites)
-
-            case .retrieveFavorites:
-                return environment.localDatabaseClient
-                    .fetchFavoriteCards()
-                    .receive(on: environment.mainQueue)
-                    .catchToEffect()
-                    .map(FavoritesAction.favoritesResponse)
-                    .cancellable(id: FavoritesCancelId())
-
-            case .favoritesResponse(.success(let favorites)):
-                state.cards = .init(
-                    uniqueElements: favorites.map {
-                        CardDetailState(
-                            id: environment.uuid(),
-                            card: $0
-                        )
-                    }
-                )
-                return .none
-                
-            case .card(id: _, action: .onDisappear):
-                return .init(value: .retrieveFavorites)
-                
-            case .card(id: _, action: _):
-                return .none
-                
-            case .onDisappear:
-                return .cancel(id: FavoritesCancelId())
-            }
-        }
-    )
+}
