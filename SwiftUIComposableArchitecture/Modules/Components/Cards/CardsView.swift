@@ -9,7 +9,7 @@ import ComposableArchitecture
 import SwiftUI
 
 struct CardsView: View {
-    var store: Store<CardsCore.State, CardsCore.Action>
+    let store: Store<CardsCore.State, CardsCore.Action>
 
     var body: some View {
         WithViewStore(store) { viewStore in

@@ -9,7 +9,7 @@ import ComposableArchitecture
 import SwiftUI
 
 struct FavoritesView: View {
-    var store: Store<FavoritesCore.State, FavoritesCore.Action>
+    let store: Store<FavoritesCore.State, FavoritesCore.Action>
 
     var body: some View {
         WithViewStore(store) { viewStore in
