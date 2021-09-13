@@ -48,6 +48,16 @@
                ReferencedContainer = "container:SwiftUIComposableArchitecture.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FC3B946226EEF00600E16904"
+               BuildableName = "SwiftUIComposableArchitectureSnapshotTests.xctest"
+               BlueprintName = "SwiftUIComposableArchitectureSnapshotTests"
+               ReferencedContainer = "container:SwiftUIComposableArchitecture.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

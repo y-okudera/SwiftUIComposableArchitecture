@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B61F957826EE42E800CB4017 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B61F957726EE42E800CB4017 /* SnapshotTesting */; };
-		B61F957B26EE51C000CB4017 /* SnapshotDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F957A26EE51C000CB4017 /* SnapshotDevices.swift */; };
 		B679B12126EE1155004D8E6A /* CardsCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B12026EE1155004D8E6A /* CardsCoreTests.swift */; };
-		B679B12626EE3ED9004D8E6A /* CardsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B12526EE3ED9004D8E6A /* CardsViewTests.swift */; };
 		B687832B26EB921A00290988 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B687832A26EB921A00290988 /* App.swift */; };
 		B687832F26EB921A00290988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B687832E26EB921A00290988 /* Assets.xcassets */; };
 		B687833226EB921A00290988 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B687833126EB921A00290988 /* Preview Assets.xcassets */; };
@@ -45,10 +43,20 @@
 		FC3B945A26EEE46C00E16904 /* EnvHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B945926EEE46C00E16904 /* EnvHolder.swift */; };
 		FC3B945C26EEE48C00E16904 /* EnvDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B945B26EEE48C00E16904 /* EnvDecoder.swift */; };
 		FC3B945E26EEE52100E16904 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B945D26EEE52100E16904 /* Env.swift */; };
+		FC3B946F26EEF04800E16904 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = FC3B946E26EEF04800E16904 /* SnapshotTesting */; };
+		FC3B947226EEF0A300E16904 /* CardsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B12526EE3ED9004D8E6A /* CardsViewTests.swift */; };
+		FC3B947326EEF12B00E16904 /* SnapshotDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F957A26EE51C000CB4017 /* SnapshotDevices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		B687833926EB921A00290988 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B687831F26EB921A00290988 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B687832626EB921A00290988;
+			remoteInfo = SwiftUIComposableArchitecture;
+		};
+		FC3B946826EEF00600E16904 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B687831F26EB921A00290988 /* Project object */;
 			proxyType = 1;
@@ -98,6 +106,8 @@
 		FC3B945926EEE46C00E16904 /* EnvHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvHolder.swift; sourceTree = "<group>"; };
 		FC3B945B26EEE48C00E16904 /* EnvDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvDecoder.swift; sourceTree = "<group>"; };
 		FC3B945D26EEE52100E16904 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		FC3B946326EEF00600E16904 /* SwiftUIComposableArchitectureSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIComposableArchitectureSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC3B946726EEF00600E16904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA7B54626EEDDF7001A3864 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,22 +130,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC3B946026EEF00600E16904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC3B946F26EEF04800E16904 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B61F957926EE51B800CB4017 /* SnapshotDevices */ = {
-			isa = PBXGroup;
-			children = (
-				B61F957A26EE51C000CB4017 /* SnapshotDevices.swift */,
-			);
-			path = SnapshotDevices;
-			sourceTree = "<group>";
-		};
 		B679B11F26EE110E004D8E6A /* CardsTests */ = {
 			isa = PBXGroup;
 			children = (
 				B679B12026EE1155004D8E6A /* CardsCoreTests.swift */,
-				B679B12526EE3ED9004D8E6A /* CardsViewTests.swift */,
 			);
 			path = CardsTests;
 			sourceTree = "<group>";
@@ -145,7 +154,9 @@
 			children = (
 				B687832926EB921A00290988 /* SwiftUIComposableArchitecture */,
 				B687833B26EB921A00290988 /* SwiftUIComposableArchitectureTests */,
+				FC3B946426EEF00600E16904 /* SwiftUIComposableArchitectureSnapshotTests */,
 				B687832826EB921A00290988 /* Products */,
+				FC3B946D26EEF04800E16904 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +165,7 @@
 			children = (
 				B687832726EB921A00290988 /* SwiftUIComposableArchitecture.app */,
 				B687833826EB921A00290988 /* SwiftUIComposableArchitectureTests.xctest */,
+				FC3B946326EEF00600E16904 /* SwiftUIComposableArchitectureSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,9 +184,8 @@
 		B687833B26EB921A00290988 /* SwiftUIComposableArchitectureTests */ = {
 			isa = PBXGroup;
 			children = (
-				B61F957926EE51B800CB4017 /* SnapshotDevices */,
+				FC3B947426EEF1EC00E16904 /* Application */,
 				B679B11F26EE110E004D8E6A /* CardsTests */,
-				B687833E26EB921A00290988 /* Info.plist */,
 			);
 			path = SwiftUIComposableArchitectureTests;
 			sourceTree = "<group>";
@@ -416,6 +427,55 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
+		FC3B946426EEF00600E16904 /* SwiftUIComposableArchitectureSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				FC3B947526EEF26500E16904 /* Application */,
+				FC3B947126EEF05E00E16904 /* CardsTests */,
+				FC3B947026EEF05900E16904 /* SnapshotDevices */,
+			);
+			path = SwiftUIComposableArchitectureSnapshotTests;
+			sourceTree = "<group>";
+		};
+		FC3B946D26EEF04800E16904 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC3B947026EEF05900E16904 /* SnapshotDevices */ = {
+			isa = PBXGroup;
+			children = (
+				B61F957A26EE51C000CB4017 /* SnapshotDevices.swift */,
+			);
+			path = SnapshotDevices;
+			sourceTree = "<group>";
+		};
+		FC3B947126EEF05E00E16904 /* CardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B679B12526EE3ED9004D8E6A /* CardsViewTests.swift */,
+			);
+			path = CardsTests;
+			sourceTree = "<group>";
+		};
+		FC3B947426EEF1EC00E16904 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B687833E26EB921A00290988 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		FC3B947526EEF26500E16904 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FC3B946726EEF00600E16904 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		FCA7B54526EEDD99001A3864 /* ConfigurationSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +531,27 @@
 			productReference = B687833826EB921A00290988 /* SwiftUIComposableArchitectureTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FC3B946226EEF00600E16904 /* SwiftUIComposableArchitectureSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC3B946A26EEF00600E16904 /* Build configuration list for PBXNativeTarget "SwiftUIComposableArchitectureSnapshotTests" */;
+			buildPhases = (
+				FC3B945F26EEF00600E16904 /* Sources */,
+				FC3B946026EEF00600E16904 /* Frameworks */,
+				FC3B946126EEF00600E16904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC3B946926EEF00600E16904 /* PBXTargetDependency */,
+			);
+			name = SwiftUIComposableArchitectureSnapshotTests;
+			packageProductDependencies = (
+				FC3B946E26EEF04800E16904 /* SnapshotTesting */,
+			);
+			productName = SwiftUIComposableArchitectureSnapshotTests;
+			productReference = FC3B946326EEF00600E16904 /* SwiftUIComposableArchitectureSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -486,6 +567,10 @@
 					B687833726EB921A00290988 = {
 						CreatedOnToolsVersion = 12.5;
 						LastSwiftMigration = 1250;
+						TestTargetID = B687832626EB921A00290988;
+					};
+					FC3B946226EEF00600E16904 = {
+						CreatedOnToolsVersion = 12.5;
 						TestTargetID = B687832626EB921A00290988;
 					};
 				};
@@ -512,6 +597,7 @@
 			targets = (
 				B687832626EB921A00290988 /* SwiftUIComposableArchitecture */,
 				B687833726EB921A00290988 /* SwiftUIComposableArchitectureTests */,
+				FC3B946226EEF00600E16904 /* SwiftUIComposableArchitectureSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
@@ -528,6 +614,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B687833626EB921A00290988 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC3B946126EEF00600E16904 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -576,9 +669,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B679B12626EE3ED9004D8E6A /* CardsViewTests.swift in Sources */,
-				B61F957B26EE51C000CB4017 /* SnapshotDevices.swift in Sources */,
 				B679B12126EE1155004D8E6A /* CardsCoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC3B945F26EEF00600E16904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC3B947226EEF0A300E16904 /* CardsViewTests.swift in Sources */,
+				FC3B947326EEF12B00E16904 /* SnapshotDevices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +689,11 @@
 			isa = PBXTargetDependency;
 			target = B687832626EB921A00290988 /* SwiftUIComposableArchitecture */;
 			targetProxy = B687833926EB921A00290988 /* PBXContainerItemProxy */;
+		};
+		FC3B946926EEF00600E16904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B687832626EB921A00290988 /* SwiftUIComposableArchitecture */;
+			targetProxy = FC3B946826EEF00600E16904 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -776,7 +881,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8PR34D6DP;
-				INFOPLIST_FILE = SwiftUIComposableArchitectureTests/Info.plist;
+				INFOPLIST_FILE = SwiftUIComposableArchitectureTests/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -801,7 +906,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8PR34D6DP;
-				INFOPLIST_FILE = SwiftUIComposableArchitectureTests/Info.plist;
+				INFOPLIST_FILE = SwiftUIComposableArchitectureTests/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,6 +914,50 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.yuoku.PartialCopyableMenu.SwiftUIComposableArchitectureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIComposableArchitecture.app/SwiftUIComposableArchitecture";
+			};
+			name = Release;
+		};
+		FC3B946B26EEF00600E16904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8PR34D6DP;
+				INFOPLIST_FILE = SwiftUIComposableArchitectureSnapshotTests/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.yuoku.SwiftUIComposableArchitectureSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIComposableArchitecture.app/SwiftUIComposableArchitecture";
+			};
+			name = Debug;
+		};
+		FC3B946C26EEF00600E16904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8PR34D6DP;
+				INFOPLIST_FILE = SwiftUIComposableArchitectureSnapshotTests/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.yuoku.SwiftUIComposableArchitectureSnapshotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -842,6 +991,15 @@
 			buildConfigurations = (
 				B687835026EB921A00290988 /* Debug */,
 				B687835126EB921A00290988 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC3B946A26EEF00600E16904 /* Build configuration list for PBXNativeTarget "SwiftUIComposableArchitectureSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC3B946B26EEF00600E16904 /* Debug */,
+				FC3B946C26EEF00600E16904 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -903,6 +1061,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B68783B326EC97FD00290988 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FC3B946E26EEF04800E16904 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B61F957626EE42E800CB4017 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
