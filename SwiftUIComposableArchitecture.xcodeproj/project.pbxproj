@@ -14,7 +14,6 @@
 		B687832B26EB921A00290988 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B687832A26EB921A00290988 /* App.swift */; };
 		B687832F26EB921A00290988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B687832E26EB921A00290988 /* Assets.xcassets */; };
 		B687833226EB921A00290988 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B687833126EB921A00290988 /* Preview Assets.xcassets */; };
-		B687834826EB921A00290988 /* SwiftUIComposableArchitectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B687834726EB921A00290988 /* SwiftUIComposableArchitectureUITests.swift */; };
 		B687835D26EB9B2400290988 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B687835C26EB9B2400290988 /* ComposableArchitecture */; };
 		B687836826EBA4F500290988 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B687836726EBA4F500290988 /* CardsView.swift */; };
 		B687836A26EBA50100290988 /* CardsCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B687836926EBA50100290988 /* CardsCore.swift */; };
@@ -56,13 +55,6 @@
 			remoteGlobalIDString = B687832626EB921A00290988;
 			remoteInfo = SwiftUIComposableArchitecture;
 		};
-		B687834426EB921A00290988 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B687831F26EB921A00290988 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B687832626EB921A00290988;
-			remoteInfo = SwiftUIComposableArchitecture;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -76,9 +68,6 @@
 		B687833326EB921A00290988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B687833826EB921A00290988 /* SwiftUIComposableArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIComposableArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B687833E26EB921A00290988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B687834326EB921A00290988 /* SwiftUIComposableArchitectureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIComposableArchitectureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B687834726EB921A00290988 /* SwiftUIComposableArchitectureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIComposableArchitectureUITests.swift; sourceTree = "<group>"; };
-		B687834926EB921A00290988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B687836726EBA4F500290988 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		B687836926EBA50100290988 /* CardsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCore.swift; sourceTree = "<group>"; };
 		B687836D26EBA68400290988 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
@@ -131,13 +120,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B687834026EB921A00290988 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -163,7 +145,6 @@
 			children = (
 				B687832926EB921A00290988 /* SwiftUIComposableArchitecture */,
 				B687833B26EB921A00290988 /* SwiftUIComposableArchitectureTests */,
-				B687834626EB921A00290988 /* SwiftUIComposableArchitectureUITests */,
 				B687832826EB921A00290988 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -173,7 +154,6 @@
 			children = (
 				B687832726EB921A00290988 /* SwiftUIComposableArchitecture.app */,
 				B687833826EB921A00290988 /* SwiftUIComposableArchitectureTests.xctest */,
-				B687834326EB921A00290988 /* SwiftUIComposableArchitectureUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,15 +177,6 @@
 				B687833E26EB921A00290988 /* Info.plist */,
 			);
 			path = SwiftUIComposableArchitectureTests;
-			sourceTree = "<group>";
-		};
-		B687834626EB921A00290988 /* SwiftUIComposableArchitectureUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B687834726EB921A00290988 /* SwiftUIComposableArchitectureUITests.swift */,
-				B687834926EB921A00290988 /* Info.plist */,
-			);
-			path = SwiftUIComposableArchitectureUITests;
 			sourceTree = "<group>";
 		};
 		B687835E26EB9E1800290988 /* Application */ = {
@@ -500,24 +471,6 @@
 			productReference = B687833826EB921A00290988 /* SwiftUIComposableArchitectureTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B687834226EB921A00290988 /* SwiftUIComposableArchitectureUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B687835226EB921A00290988 /* Build configuration list for PBXNativeTarget "SwiftUIComposableArchitectureUITests" */;
-			buildPhases = (
-				B687833F26EB921A00290988 /* Sources */,
-				B687834026EB921A00290988 /* Frameworks */,
-				B687834126EB921A00290988 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B687834526EB921A00290988 /* PBXTargetDependency */,
-			);
-			name = SwiftUIComposableArchitectureUITests;
-			productName = SwiftUIComposableArchitectureUITests;
-			productReference = B687834326EB921A00290988 /* SwiftUIComposableArchitectureUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -533,10 +486,6 @@
 					B687833726EB921A00290988 = {
 						CreatedOnToolsVersion = 12.5;
 						LastSwiftMigration = 1250;
-						TestTargetID = B687832626EB921A00290988;
-					};
-					B687834226EB921A00290988 = {
-						CreatedOnToolsVersion = 12.5;
 						TestTargetID = B687832626EB921A00290988;
 					};
 				};
@@ -563,7 +512,6 @@
 			targets = (
 				B687832626EB921A00290988 /* SwiftUIComposableArchitecture */,
 				B687833726EB921A00290988 /* SwiftUIComposableArchitectureTests */,
-				B687834226EB921A00290988 /* SwiftUIComposableArchitectureUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -580,13 +528,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B687833626EB921A00290988 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B687834126EB921A00290988 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -641,14 +582,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B687833F26EB921A00290988 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B687834826EB921A00290988 /* SwiftUIComposableArchitectureUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -656,11 +589,6 @@
 			isa = PBXTargetDependency;
 			target = B687832626EB921A00290988 /* SwiftUIComposableArchitecture */;
 			targetProxy = B687833926EB921A00290988 /* PBXContainerItemProxy */;
-		};
-		B687834526EB921A00290988 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B687832626EB921A00290988 /* SwiftUIComposableArchitecture */;
-			targetProxy = B687834426EB921A00290988 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -888,46 +816,6 @@
 			};
 			name = Release;
 		};
-		B687835326EB921A00290988 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B8PR34D6DP;
-				INFOPLIST_FILE = SwiftUIComposableArchitectureUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = jp.yuoku.PartialCopyableMenu.SwiftUIComposableArchitectureUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SwiftUIComposableArchitecture;
-			};
-			name = Debug;
-		};
-		B687835426EB921A00290988 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B8PR34D6DP;
-				INFOPLIST_FILE = SwiftUIComposableArchitectureUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = jp.yuoku.PartialCopyableMenu.SwiftUIComposableArchitectureUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SwiftUIComposableArchitecture;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -954,15 +842,6 @@
 			buildConfigurations = (
 				B687835026EB921A00290988 /* Debug */,
 				B687835126EB921A00290988 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B687835226EB921A00290988 /* Build configuration list for PBXNativeTarget "SwiftUIComposableArchitectureUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B687835326EB921A00290988 /* Debug */,
-				B687835426EB921A00290988 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
