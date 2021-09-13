@@ -1,0 +1,13 @@
+//
+//  Production.xcconfig
+//  SwiftUIComposableArchitecture
+//
+//  Created by okudera on 2021/09/13.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// API URL
+POKEMONTCG_API_URL = api.pokemontcg.io
+POKEMONTCG_API_VERSION = v1

@@ -64,15 +64,13 @@ extension ApiRoute {
     private var pokemonTCGBaseUrl: URL? {
         var components = URLComponents()
         components.scheme = "https"
-
-        // TOOD: - Separate into env
-        components.host = "api.pokemontcg.io"
+        components.host = EnvDecoder.decode().pokemonTCGApiUrl
         return components.url
     }
 
     var pokemonTCGUrl: URL {
-        // TOOD: - Separate into env
-        guard let url = URL(string: "/v1/\(path)", relativeTo: baseUrl),
+        let apiVersion = EnvDecoder.decode().pokemonTCGApiVersion
+        guard let url = URL(string: "/\(apiVersion)/\(path)", relativeTo: baseUrl),
               var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             fatalError("url or components nil")
         }

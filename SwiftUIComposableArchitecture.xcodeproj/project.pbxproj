@@ -43,6 +43,9 @@
 		B6AC6D2526EDA8B100C6E7CB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6D2426EDA8B100C6E7CB /* ApiClient.swift */; };
 		B6AC6D2726EDA8C200C6E7CB /* ApiLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6D2626EDA8C200C6E7CB /* ApiLive.swift */; };
 		B6AC6D2926EDBB0D00C6E7CB /* ApiDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6D2826EDBB0D00C6E7CB /* ApiDecode.swift */; };
+		FC3B945A26EEE46C00E16904 /* EnvHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B945926EEE46C00E16904 /* EnvHolder.swift */; };
+		FC3B945C26EEE48C00E16904 /* EnvDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B945B26EEE48C00E16904 /* EnvDecoder.swift */; };
+		FC3B945E26EEE52100E16904 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B945D26EEE52100E16904 /* Env.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,11 @@
 		B6AC6D2426EDA8B100C6E7CB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		B6AC6D2626EDA8C200C6E7CB /* ApiLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLive.swift; sourceTree = "<group>"; };
 		B6AC6D2826EDBB0D00C6E7CB /* ApiDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDecode.swift; sourceTree = "<group>"; };
+		FC3B945726EEE20100E16904 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		FC3B945926EEE46C00E16904 /* EnvHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvHolder.swift; sourceTree = "<group>"; };
+		FC3B945B26EEE48C00E16904 /* EnvDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvDecoder.swift; sourceTree = "<group>"; };
+		FC3B945D26EEE52100E16904 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		FCA7B54626EEDDF7001A3864 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +214,8 @@
 				B687832A26EB921A00290988 /* App.swift */,
 				B68783C426ECD7B000290988 /* AppDelegateCore.swift */,
 				B687832E26EB921A00290988 /* Assets.xcassets */,
+				FCA7B54526EEDD99001A3864 /* ConfigurationSettings */,
+				FC3B945826EEE45E00E16904 /* Environment */,
 				B687833326EB921A00290988 /* Info.plist */,
 				B68783A526EC91EB00290988 /* Localization */,
 			);
@@ -425,6 +435,25 @@
 			path = ApiDecode;
 			sourceTree = "<group>";
 		};
+		FC3B945826EEE45E00E16904 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				FC3B945D26EEE52100E16904 /* Env.swift */,
+				FC3B945B26EEE48C00E16904 /* EnvDecoder.swift */,
+				FC3B945926EEE46C00E16904 /* EnvHolder.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		FCA7B54526EEDD99001A3864 /* ConfigurationSettings */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7B54626EEDDF7001A3864 /* Development.xcconfig */,
+				FC3B945726EEE20100E16904 /* Production.xcconfig */,
+			);
+			path = ConfigurationSettings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -578,6 +607,7 @@
 				B68783A226EC918D00290988 /* FavoritesCore.swift in Sources */,
 				B6AC6D2526EDA8B100C6E7CB /* ApiClient.swift in Sources */,
 				B6AC6D2726EDA8C200C6E7CB /* ApiLive.swift in Sources */,
+				FC3B945A26EEE46C00E16904 /* EnvHolder.swift in Sources */,
 				B68783C526ECD7B000290988 /* AppDelegateCore.swift in Sources */,
 				B687839F26EC8F7F00290988 /* FavoriteButton.swift in Sources */,
 				B687838226EBBBEC00290988 /* ApiRoute.swift in Sources */,
@@ -587,12 +617,14 @@
 				B687838426EBBDF400290988 /* ApiRouter.swift in Sources */,
 				B6AC6D2926EDBB0D00C6E7CB /* ApiDecode.swift in Sources */,
 				B68783B726EC987F00290988 /* FavoriteCard.swift in Sources */,
+				FC3B945E26EEE52100E16904 /* Env.swift in Sources */,
 				B687837A26EBB55300290988 /* ApiError.swift in Sources */,
 				B687837D26EBB85B00290988 /* ErrorUtility.swift in Sources */,
 				B687836A26EBA50100290988 /* CardsCore.swift in Sources */,
 				B68783C326ECD77700290988 /* AppView.swift in Sources */,
 				B687836E26EBA68400290988 /* Cards.swift in Sources */,
 				B687836826EBA4F500290988 /* CardsView.swift in Sources */,
+				FC3B945C26EEE48C00E16904 /* EnvDecoder.swift in Sources */,
 				B687838F26EBC53F00290988 /* CardDetailView.swift in Sources */,
 				B687839826EC8DBE00290988 /* ActivityIndicator.swift in Sources */,
 				B68783C126ECD76F00290988 /* AppCore.swift in Sources */,
@@ -763,6 +795,7 @@
 		};
 		B687834D26EB921A00290988 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCA7B54626EEDDF7001A3864 /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -785,6 +818,7 @@
 		};
 		B687834E26EB921A00290988 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC3B945726EEE20100E16904 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -807,6 +841,7 @@
 		};
 		B687835026EB921A00290988 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCA7B54626EEDDF7001A3864 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -831,6 +866,7 @@
 		};
 		B687835126EB921A00290988 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC3B945726EEE20100E16904 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

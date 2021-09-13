@@ -46,5 +46,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <!-- Environment variables -->
+	<key>Env</key>
+	<dict>
+		<key>PokemonTCGApiUrl</key>
+		<string>$(POKEMONTCG_API_URL)</string>
+		<key>PokemonTCGApiVersion</key>
+		<string>$(POKEMONTCG_API_VERSION)</string>
+	</dict>
 </dict>
 </plist>
