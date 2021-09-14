@@ -78,6 +78,7 @@ targets:
         excludes:
           - "**/.gitkeep"
           - "**/*.md"
+          - "**/Settings.bundle"
     dependencies:
       - package: swift-composable-architecture
         product: ComposableArchitecture
