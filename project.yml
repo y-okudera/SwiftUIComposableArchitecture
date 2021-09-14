@@ -57,6 +57,12 @@ packages:
   Kingfisher:
     url: https://github.com/onevcat/Kingfisher.git
     from: 6.3.1
+  Lottie:
+    url: https://github.com/airbnb/lottie-ios.git
+    from: 3.2.3
+  SkeletonUI:
+    url: https://github.com/CSolanaM/SkeletonUI.git
+    from: 1.0.5
   SwiftSnapshotTesting:
     url: https://github.com/pointfreeco/swift-snapshot-testing.git
     from: 1.9.0
@@ -94,6 +100,8 @@ targets:
         product: XCTestDynamicOverlay
       - package: GRDB
       - package: Kingfisher
+      - package: Lottie
+      - package: SkeletonUI
     preBuildScripts:
       - path: ./scripts/license_plist.sh
         name: LicensePlist

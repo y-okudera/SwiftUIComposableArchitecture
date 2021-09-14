@@ -6,6 +6,7 @@
 //
 
 import Kingfisher
+import SkeletonUI
 import SwiftUI
 
 struct CardItemView: View {
@@ -17,13 +18,13 @@ struct CardItemView: View {
       VStack(alignment: .leading, spacing: 4) {
         KFImage(card.imageURL)
           .placeholder {
-            ActivityIndicator(
-              style: .large,
-              isAnimating: .constant(true)
-            )
+            Rectangle()
+              .skeleton(with: true)
+              .shape(type: .rectangle)
+              .animation(type: .pulse())
           }
           .resizable()
-          .aspectRatio(CGSize(width: 600, height: 825), contentMode: .fit)
+          .aspectRatio(CGSize(width: 24, height: 33), contentMode: .fit)
           .clipped()
         HStack {
           VStack(alignment: .leading, spacing: 0) {

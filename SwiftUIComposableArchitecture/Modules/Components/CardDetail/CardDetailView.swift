@@ -17,10 +17,11 @@ struct CardDetailView: View {
       VStack {
         KFImage(viewStore.card.imageHDURL)
           .placeholder {
-            ActivityIndicator(
-              style: .large,
+            LottieView(
+              asset: Asset.pikachu.name,
               isAnimating: .constant(true)
             )
+            .frame(width: 120, height: 120, alignment: .center)
           }
           .resizable()
           .aspectRatio(CGSize(width: 600, height: 825), contentMode: .fit)

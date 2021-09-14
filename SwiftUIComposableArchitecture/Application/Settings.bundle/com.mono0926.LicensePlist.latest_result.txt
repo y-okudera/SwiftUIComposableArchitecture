@@ -14,6 +14,10 @@ name: GRDB.swift, nameSpecified: GRDB, owner: groue, version: 5.11.0
 
 name: Kingfisher, nameSpecified: Kingfisher, owner: onevcat, version: 6.3.1
 
+name: lottie-ios, nameSpecified: Lottie, owner: airbnb, version: 3.2.3
+
+name: SkeletonUI, nameSpecified: SkeletonUI, owner: CSolanaM, version: 1.0.5
+
 name: swift-case-paths, nameSpecified: swift-case-paths, owner: pointfreeco, version: 0.7.0
 
 name: swift-collections, nameSpecified: swift-collections, owner: apple, version: 0.0.7

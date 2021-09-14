@@ -19,25 +19,27 @@ struct CardsView: View {
             if viewStore.isLoading {
               VStack {
                 Spacer()
-                ActivityIndicator(
-                  style: .large,
+                LottieView(
+                  asset: Asset.pikachu.name,
                   isAnimating: viewStore.binding(
                     get: { $0.isLoading },
                     send: CardsCore.Action.loadingActive
                   )
                 )
+                .frame(width: 120, height: 120, alignment: .center)
                 Spacer()
               }
             } else {
               VStack {
                 itemsList(viewStore)
-                ActivityIndicator(
-                  style: .medium,
+                LottieView(
+                  asset: Asset.pikachu.name,
                   isAnimating: viewStore.binding(
                     get: { $0.isLoadingPage },
                     send: CardsCore.Action.loadingPageActive
                   )
                 )
+                .frame(width: 120, height: 120, alignment: .center)
               }
             }
           }
