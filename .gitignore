@@ -106,3 +106,6 @@ iOSInjectionProject/
 
 # SnapshotTesting
 **/__Snapshots__/*
+
+# homebrew-bundle
+Brewfile.lock.json
