@@ -92,8 +92,7 @@ iOSInjectionProject/
 /vendor/bin
 
 # XcodeGen
-# 
-# /*.xcodeproj
+/*.xcodeproj
 
 # Ignore auto generated files.
 **/Generated/*

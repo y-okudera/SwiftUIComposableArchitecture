@@ -1,0 +1,12 @@
+strings:
+  inputs:
+    - SwiftUIComposableArchitecture/Application/Localization/en.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: SwiftUIComposableArchitecture/Application/Localization/Generated/L10n-Constants.swift
+xcassets:
+  inputs:
+    - SwiftUIComposableArchitecture/Application/Assets/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: SwiftUIComposableArchitecture/Application/Assets/Generated/Assets.swift

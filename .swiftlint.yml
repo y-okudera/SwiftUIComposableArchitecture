@@ -1,0 +1,45 @@
+# 無効にするルール。
+disabled_rules:
+  - force_cast # 場合によっては使用するため
+  - identifier_name # 変数名にアンスコを使用したいため
+  - trailing_whitespace # コードの記載のない改行を許可したい
+
+# デフォルト無効のルールのうち、有効にするもの。
+opt_in_rules:
+  - closure_spacing # クロージャのカッコの近くにスペース強制
+  - empty_count # == 0 のかわりにisEmptyを使用する
+  - explicit_init # init()を使わない
+  - fatal_error_message # fatalErrorにメッセージをつける
+  - first_where # .filter { }.firstよりも.first(where:)を用いる
+  - object_literal # #imageLiteralや#colorLiteralを用いる
+  - private_outlet # outletはprivateにする
+  - prohibited_super_call # いくつかのメソッドにおいてはsuperを呼び出すべきではない
+  - redundant_nil_coalescing # nil結合演算子において、左辺がnilの場合のみ評価される性質上、右辺にnilを書くのは冗長なため、書くべきでない
+
+# Lint対象に含めないディレクトリ
+excluded:
+  - Pods/
+  - Carthage/
+  - vendor/
+  - ./**/Generated/
+  - *Tests/
+
+# 1行あたりの文字数制限を200に変更
+line_length: 200
+
+# 変数名が2文字以上なら許可に変更
+identifier_name:
+  min_length: 2
+
+# ArrayやDictionary中の末尾の,を強制
+trailing_comma:
+  mandatory_comma: true
+
+# タプルは3つで警告、4つ以上でエラー
+large_tuple:
+  - 3
+  - 4
+
+# outletのprivate(set)は許容する
+private_outlet:
+  allow_private_set: true
