@@ -9,32 +9,31 @@ import ComposableArchitecture
 import SwiftUI
 
 enum AppDelegateCore {
+  // MARK: - State
 
-    // MARK: - State
+  struct State: Equatable {}
 
-    struct State: Equatable {}
+  // MARK: - Action
 
-    // MARK: - Action
+  enum Action: Equatable {
+    case didFinishLaunching
+  }
 
-    enum Action: Equatable {
-        case didFinishLaunching
+  // MARK: - Environment
+
+  struct Environment {
+    var localDatabaseClient: LocalDatabaseClient
+  }
+
+  // MARK: - Reducer
+
+  static let reducer =
+    Reducer<State, Action, Environment> { _, action, environment in
+      switch action {
+      case .didFinishLaunching:
+        _ = environment.localDatabaseClient
+          .migrate()
+        return .none
+      }
     }
-
-    // MARK: - Environment
-
-    struct Environment {
-        var localDatabaseClient: LocalDatabaseClient
-    }
-
-    // MARK: - Reducer
-
-    static let reducer =
-        Reducer<State, Action, Environment> { _, action, environment in
-            switch action {
-            case .didFinishLaunching:
-                _ = environment.localDatabaseClient
-                    .migrate()
-                return .none
-            }
-        }
 }

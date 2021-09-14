@@ -8,7 +8,6 @@
 import ComposableArchitecture
 
 enum AppCore {
-
   // MARK: - State
 
   struct State: Equatable {
@@ -115,5 +114,4 @@ enum AppCore {
         }
       }
     )
-
 }

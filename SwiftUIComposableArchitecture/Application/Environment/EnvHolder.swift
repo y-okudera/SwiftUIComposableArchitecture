@@ -8,9 +8,9 @@
 import Foundation
 
 struct EnvHolder: Decodable {
-    let environment: Env
+  let environment: Env
 
-    enum CodingKeys: String, CodingKey {
-        case environment = "Env"
-    }
+  enum CodingKeys: String, CodingKey {
+    case environment = "Env"
+  }
 }

@@ -8,11 +8,11 @@
 import Foundation
 
 struct Env: Decodable {
-    let pokemonTCGApiUrl: String
-    let pokemonTCGApiVersion: String
+  let pokemonTCGApiUrl: String
+  let pokemonTCGApiVersion: String
 
-    enum CodingKeys: String, CodingKey {
-        case pokemonTCGApiUrl = "PokemonTCGApiUrl"
-        case pokemonTCGApiVersion = "PokemonTCGApiVersion"
-    }
+  enum CodingKeys: String, CodingKey {
+    case pokemonTCGApiUrl = "PokemonTCGApiUrl"
+    case pokemonTCGApiVersion = "PokemonTCGApiVersion"
+  }
 }

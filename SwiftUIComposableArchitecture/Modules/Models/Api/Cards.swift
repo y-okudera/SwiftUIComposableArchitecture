@@ -8,23 +8,23 @@
 import Foundation
 
 struct Cards: Decodable, Equatable, Identifiable {
-    var id = UUID()
-    var cards: [Card]
+  var id = UUID()
+  var cards: [Card]
 
-    enum CodingKeys: String, CodingKey {
-        case cards
-    }
+  enum CodingKeys: String, CodingKey {
+    case cards
+  }
 }
 
 // MARK: Mock
 
 extension Cards {
-    static var mock: Cards {
-        Cards(
-            cards: [
-                Card.mock1,
-                Card.mock2,
-            ]
-        )
-    }
+  static var mock: Cards {
+    Cards(
+      cards: [
+        Card.mock1,
+        Card.mock2
+      ]
+    )
+  }
 }

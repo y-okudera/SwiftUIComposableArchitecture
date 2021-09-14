@@ -8,74 +8,73 @@
 import Foundation
 
 enum ApiRoute {
+  // MARK: - Cases
 
-    // MARK: - Cases
+  case cardsPage(number: Int, size: Int)
 
-    case cardsPage(number: Int, size: Int)
+  // MARK: - Variables
 
-    // MARK: - Variables
+  var path: String {
+    switch self {
+    case .cardsPage:
+      return "cards"
+    }
+  }
+  var queryItems: [URLQueryItem]? {
+    switch self {
+    case .cardsPage(let number, let size):
+      return [
+        URLQueryItem(name: "page", value: "\(number)"),
+        URLQueryItem(name: "pageSize", value: "\(size)")
+      ]
+    }
+  }
+  var httpMethod: String {
+    switch self {
+    case .cardsPage:
+      return "GET"
+    }
+  }
+  var responseType: Decodable.Type {
+    switch self {
+    case .cardsPage:
+      return Cards.self
+    }
+  }
 
-    var path: String {
-        switch self {
-        case .cardsPage:
-            return "cards"
-        }
+  var baseUrl: URL? {
+    switch self {
+    case .cardsPage:
+      return pokemonTCGBaseUrl
     }
-    var queryItems: [URLQueryItem]? {
-        switch self {
-        case .cardsPage(let number, let size):
-            return [
-                URLQueryItem(name: "page", value: "\(number)"),
-                URLQueryItem(name: "pageSize", value: "\(size)"),
-            ]
-        }
-    }
-    var httpMethod: String {
-        switch self {
-        case .cardsPage:
-            return "GET"
-        }
-    }
-    var responseType: Decodable.Type {
-        switch self {
-        case .cardsPage:
-            return Cards.self
-        }
-    }
+  }
 
-    var baseUrl: URL? {
-        switch self {
-        case .cardsPage:
-            return pokemonTCGBaseUrl
-        }
+  var url: URL {
+    switch self {
+    case .cardsPage:
+      return pokemonTCGUrl
     }
-
-    var url: URL {
-        switch self {
-        case .cardsPage:
-            return pokemonTCGUrl
-        }
-    }
+  }
 }
 
 // MARK: - Specific Urls
+
 extension ApiRoute {
+  private var pokemonTCGBaseUrl: URL? {
+    var components = URLComponents()
+    components.scheme = "https"
+    components.host = EnvDecoder.decode().pokemonTCGApiUrl
+    return components.url
+  }
 
-    private var pokemonTCGBaseUrl: URL? {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = EnvDecoder.decode().pokemonTCGApiUrl
-        return components.url
+  var pokemonTCGUrl: URL {
+    let apiVersion = EnvDecoder.decode().pokemonTCGApiVersion
+    guard let url = URL(string: "/\(apiVersion)/\(path)", relativeTo: baseUrl),
+          var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+      fatalError("url or components nil")
     }
 
-    var pokemonTCGUrl: URL {
-        let apiVersion = EnvDecoder.decode().pokemonTCGApiVersion
-        guard let url = URL(string: "/\(apiVersion)/\(path)", relativeTo: baseUrl),
-              var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            fatalError("url or components nil")
-        }
-
-        components.queryItems = queryItems
-        return components.url!
-    }
+    components.queryItems = queryItems
+    return components.url!
+  }
 }
