@@ -17,7 +17,7 @@ enum ApiRoute {
 
     var path: String {
         switch self {
-        case .cardsPage(_, _):
+        case .cardsPage:
             return "cards"
         }
     }
@@ -32,27 +32,27 @@ enum ApiRoute {
     }
     var httpMethod: String {
         switch self {
-        case .cardsPage(_, _):
+        case .cardsPage:
             return "GET"
         }
     }
     var responseType: Decodable.Type {
         switch self {
-        case .cardsPage(_, _):
+        case .cardsPage:
             return Cards.self
         }
     }
 
     var baseUrl: URL? {
         switch self {
-        case .cardsPage(_, _):
+        case .cardsPage:
             return pokemonTCGBaseUrl
         }
     }
 
     var url: URL {
         switch self {
-        case .cardsPage(_, _):
+        case .cardsPage:
             return pokemonTCGUrl
         }
     }

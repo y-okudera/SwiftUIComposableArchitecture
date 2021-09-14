@@ -93,6 +93,12 @@ targets:
         product: XCTestDynamicOverlay
       - package: GRDB
       - package: Kingfisher
+    preBuildScripts:
+      - path: ./scripts/license_plist.sh
+        name: LicensePlist
+    postBuildScripts:
+      - path: ./scripts/swift_lint.sh
+        name: SwiftLint
   # Tests target
   SwiftUIComposableArchitectureTests:
     type: bundle.unit-test

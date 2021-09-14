@@ -22,7 +22,8 @@ excluded:
   - Carthage/
   - vendor/
   - ./**/Generated/
-  - *Tests/
+  - SwiftUIComposableArchitectureSnapshotTests/
+  - SwiftUIComposableArchitectureTests/
 
 # 1行あたりの文字数制限を200に変更
 line_length: 200

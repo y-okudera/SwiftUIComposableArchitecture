@@ -27,7 +27,7 @@ extension LocalDatabaseClient {
                     }
                 }
 
-                let queue = try! DatabaseQueue(path: databasePath.absoluteString)
+                let queue = try DatabaseQueue(path: databasePath.absoluteString)
                 try migrator.migrate(queue)
 
                 return .init(value: ())
