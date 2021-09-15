@@ -14,8 +14,8 @@ options:
     iOS: "14.0"
   developmentLanguage: ja
 configFiles:
-  debug: SwiftUIComposableArchitecture/Application/ConfigurationSettings/Development.xcconfig
-  release: SwiftUIComposableArchitecture/Application/ConfigurationSettings/Production.xcconfig
+  debug: SwiftUIComposableArchitecture/Application/Configs/Development.xcconfig
+  release: SwiftUIComposableArchitecture/Application/Configs/Production.xcconfig
 
 # Build settings
 settingGroups:
@@ -84,7 +84,6 @@ targets:
         excludes:
           - "**/.gitkeep"
           - "**/*.md"
-          - "**/Settings.bundle"
     dependencies:
       - package: swift-composable-architecture
         product: ComposableArchitecture
@@ -133,7 +132,10 @@ targets:
       configs:
         debug:
             VALIDATE_WORKSPACE: YES
-    sources: SwiftUIComposableArchitectureSnapshotTests
+    sources:
+      - path: SwiftUIComposableArchitectureSnapshotTests
+        excludes:
+          - "**/__Snapshots__/"
     dependencies:
       - target: SwiftUIComposableArchitecture
       - package: SwiftSnapshotTesting
@@ -153,7 +155,7 @@ schemeTemplates:
         "-AppleLanguages (ja)": true
       environmentVariables:
         - variable: SNAPSHOT_ARTIFACTS
-          value: $(SOURCE_ROOT)/$(PROJECT_NAME)Tests/__Snapshots__/Failure
+          value: $(SOURCE_ROOT)/SwiftUIComposableArchitectureSnapshotTests/__Snapshots__/Failure
           isEnabled: true
     test:
       config: ${debugConfig}
