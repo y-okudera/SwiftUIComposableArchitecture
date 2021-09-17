@@ -20,13 +20,13 @@ name: SkeletonUI, nameSpecified: SkeletonUI, owner: CSolanaM, version: 1.0.5
 
 name: swift-case-paths, nameSpecified: swift-case-paths, owner: pointfreeco, version: 0.7.0
 
-name: swift-collections, nameSpecified: swift-collections, owner: apple, version: 0.0.7
+name: swift-collections, nameSpecified: swift-collections, owner: apple, version: 1.0.0
 
-name: swift-composable-architecture, nameSpecified: swift-composable-architecture, owner: pointfreeco, version: 0.27.0
+name: swift-composable-architecture, nameSpecified: swift-composable-architecture, owner: pointfreeco, version: 0.27.1
 
-name: swift-custom-dump, nameSpecified: swift-custom-dump, owner: pointfreeco, version: 0.1.2
+name: swift-custom-dump, nameSpecified: swift-custom-dump, owner: pointfreeco, version: 0.1.3
 
-name: swift-identified-collections, nameSpecified: swift-identified-collections, owner: pointfreeco, version: 0.2.0
+name: swift-identified-collections, nameSpecified: swift-identified-collections, owner: pointfreeco, version: 0.3.0
 
 name: swift-snapshot-testing, nameSpecified: SnapshotTesting, owner: pointfreeco, version: 1.9.0
 
