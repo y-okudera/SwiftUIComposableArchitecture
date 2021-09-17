@@ -6,7 +6,7 @@ strings:
       output: SwiftUIComposableArchitecture/Support/Localization/Generated/L10n-Constants.swift
 xcassets:
   inputs:
-    - SwiftUIComposableArchitecture/Application/Resources/Assets/Assets.xcassets
+    - SwiftUIComposableArchitecture/Support/DesignSystem/Assets/Assets.xcassets
   outputs:
     - templateName: swift5
-      output: SwiftUIComposableArchitecture/Application/Resources/Assets/Generated/Assets.swift
+      output: SwiftUIComposableArchitecture/Support/DesignSystem/Assets/Generated/Assets.swift
