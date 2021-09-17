@@ -1,3 +1,7 @@
 #!/usr/bin/env sh
 
-/opt/homebrew/bin/mint run SwiftLint swiftlint
+if which mint >/dev/null; then
+  mint run SwiftLint swiftlint
+else
+  /opt/homebrew/bin/mint run SwiftLint swiftlint
+fi
