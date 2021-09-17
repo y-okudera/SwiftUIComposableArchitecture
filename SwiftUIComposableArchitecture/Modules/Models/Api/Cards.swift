@@ -23,7 +23,7 @@ extension Cards {
     Cards(
       cards: [
         Card.mock1,
-        Card.mock2
+        Card.mock2,
       ]
     )
   }

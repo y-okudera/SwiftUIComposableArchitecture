@@ -25,7 +25,7 @@ enum ApiRoute {
     case .cardsPage(let number, let size):
       return [
         URLQueryItem(name: "page", value: "\(number)"),
-        URLQueryItem(name: "pageSize", value: "\(size)")
+        URLQueryItem(name: "pageSize", value: "\(size)"),
       ]
     }
   }
