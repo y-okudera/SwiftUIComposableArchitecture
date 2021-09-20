@@ -1,0 +1,38 @@
+disabled_rules:
+  - force_cast
+  - identifier_name
+  - trailing_whitespace
+opt_in_rules:
+  - closure_spacing
+  - empty_count
+  - explicit_init
+  - fatal_error_message
+  - first_where
+  - object_literal
+  - private_outlet
+  - prohibited_super_call
+  - redundant_nil_coalescing
+
+# Excluded directories
+excluded:
+  - Pods/
+  - Carthage/
+  - vendor/
+  - ./**/Generated/
+  - Tests/
+  - Tools/
+
+line_length: 200
+
+identifier_name:
+  min_length: 2
+
+trailing_comma:
+  mandatory_comma: true
+
+large_tuple:
+  - 3
+  - 4
+
+private_outlet:
+  allow_private_set: true

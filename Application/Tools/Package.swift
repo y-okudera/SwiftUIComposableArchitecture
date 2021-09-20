@@ -1,0 +1,16 @@
+// swift-tools-version:5.3
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+  name: "Tools",
+  dependencies: [
+    .package(url: "https://github.com/mono0926/LicensePlist", .exact("3.13.0")),
+    .package(url: "https://github.com/SwiftGen/SwiftGen", .exact("6.4.0")),
+    .package(url: "https://github.com/realm/SwiftLint", .exact("0.40.3")),
+  ],
+  targets: [
+    .target(name: "Tools", path: ""),
+  ]
+)

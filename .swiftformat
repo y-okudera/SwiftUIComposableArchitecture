@@ -4,7 +4,7 @@
 --categorymark "MARK: %c"
 --classthreshold 0
 --closingparen balanced
---commas inline
+--commas always
 --conflictmarkers reject
 --decimalgrouping none
 --elseposition same-line

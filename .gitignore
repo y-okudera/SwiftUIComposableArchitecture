@@ -91,9 +91,6 @@ iOSInjectionProject/
 /vendor/bundle
 /vendor/bin
 
-# XcodeGen
-/*.xcodeproj
-
 # Ignore auto generated files.
 **/Generated/*
 !**/Generated/.gitkeep
@@ -101,11 +98,17 @@ iOSInjectionProject/
 # env file
 .env
 
+# Environment variables list
+/Application/env.txt
+
 # Provisioning profile
 *.mobileprovision
 
 # SnapshotTesting
 **/__Snapshots__/*
 
-# homebrew-bundle
-Brewfile.lock.json
+# SwiftPM
+.DS_Store
+/.build
+/Packages
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
