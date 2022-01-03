@@ -57,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6264A0B2782DB7600DC4C3B /* Resouces */ = {
+			isa = PBXGroup;
+			children = (
+				B6E370E526F862CD0028FFAB /* Localization */,
+				B6E370CC26F862CC0028FFAB /* Assets */,
+			);
+			path = Resouces;
+			sourceTree = "<group>";
+		};
 		B6C7177A26F87C1800731E42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,19 +94,14 @@
 		B6E370C326F862CC0028FFAB /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				B6E370C426F862CC0028FFAB /* DesignSystem */,
-				B6E370D526F862CC0028FFAB /* iOS */,
-				B6E370E526F862CD0028FFAB /* Localization */,
+				B6E370D626F862CC0028FFAB /* Settings */,
+				B6E370D926F862CC0028FFAB /* Configs */,
+				B6E370DC26F862CC0028FFAB /* Environment */,
+				B6E370E026F862CC0028FFAB /* App.swift */,
+				B6E370E126F862CC0028FFAB /* Info.plist */,
+				B6264A0B2782DB7600DC4C3B /* Resouces */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		B6E370C426F862CC0028FFAB /* DesignSystem */ = {
-			isa = PBXGroup;
-			children = (
-				B6E370CC26F862CC0028FFAB /* Assets */,
-			);
-			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		B6E370CC26F862CC0028FFAB /* Assets */ = {
@@ -116,18 +120,6 @@
 				B6E370CF26F862CC0028FFAB /* .gitkeep */,
 			);
 			path = Generated;
-			sourceTree = "<group>";
-		};
-		B6E370D526F862CC0028FFAB /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				B6E370D626F862CC0028FFAB /* Settings */,
-				B6E370D926F862CC0028FFAB /* Configs */,
-				B6E370DC26F862CC0028FFAB /* Environment */,
-				B6E370E026F862CC0028FFAB /* App.swift */,
-				B6E370E126F862CC0028FFAB /* Info.plist */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		B6E370D626F862CC0028FFAB /* Settings */ = {
@@ -185,7 +177,7 @@
 				B6E3709126F862530028FFAB /* Sources */,
 				B6E3709226F862530028FFAB /* Frameworks */,
 				B6E3709326F862530028FFAB /* Resources */,
-				B6C7178126F8ACFA00731E42 /* SwiftLint */,
+				B6C7178126F8ACFA00731E42 /* swift-format */,
 				B6C7177F26F895BF00731E42 /* LicensePlist */,
 				B6C7178026F8ABD500731E42 /* Output Env */,
 			);
@@ -290,7 +282,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n  # Output environment variables.\n  env > env.txt\nfi\n";
 		};
-		B6C7178126F8ACFA00731E42 /* SwiftLint */ = {
+		B6C7178126F8ACFA00731E42 /* swift-format */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,14 +291,14 @@
 			);
 			inputPaths = (
 			);
-			name = SwiftLint;
+			name = "swift-format";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Tools/.build/release/swiftlint\n";
+			shellScript = "$SRCROOT/Tools/.build/release/swift-format -r ../Sources -i || true\n$SRCROOT/Tools/.build/release/swift-format -r ../Sources -m lint || true\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -464,7 +456,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = B8PR34D6DP;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/iOS/Info.plist;
+				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,7 +478,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = B8PR34D6DP;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/iOS/Info.plist;
+				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

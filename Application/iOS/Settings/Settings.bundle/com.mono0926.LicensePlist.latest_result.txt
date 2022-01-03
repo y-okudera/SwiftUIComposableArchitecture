@@ -26,4 +26,4 @@ name: xctest-dynamic-overlay, nameSpecified: xctest-dynamic-overlay, owner: poin
 
 add-version-numbers: false
 
-LicensePlist Version: 3.16.0
+LicensePlist Version: 3.13.0
