@@ -54,7 +54,7 @@ public enum CardDetailCore {
           .cancellable(id: CardDetailCancelId())
 
       case .favoritesResponse(.success(let favorites)),
-           .toggleFavoriteResponse(.success(let favorites)):
+        .toggleFavoriteResponse(.success(let favorites)):
         state.favorites = favorites
         state.isFavorite = favorites.contains(where: { $0.id == state.card.id })
         return .none

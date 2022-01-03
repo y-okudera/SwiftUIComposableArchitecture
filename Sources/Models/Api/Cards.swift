@@ -18,8 +18,8 @@ public struct Cards: Decodable, Equatable, Identifiable {
 
 // MARK: Mock
 
-public extension Cards {
-  static var mock: Cards {
+extension Cards {
+  public static var mock: Cards {
     Cards(
       cards: [
         Card.mock1,

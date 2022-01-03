@@ -17,7 +17,8 @@ extension Lottie.Animation {
     let cacheKey = bundle.bundlePath + "/" + name
 
     if let animationCache = animationCache,
-       let animation = animationCache.animation(forKey: cacheKey) {
+      let animation = animationCache.animation(forKey: cacheKey)
+    {
       return animation
     }
 

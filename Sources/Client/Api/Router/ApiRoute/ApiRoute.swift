@@ -71,7 +71,8 @@ extension ApiRoute {
   var pokemonTCGUrl: URL {
     let apiVersion = "v1"
     guard let url = URL(string: "/\(apiVersion)/\(path)", relativeTo: baseUrl),
-          var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+      var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+    else {
       fatalError("url or components nil")
     }
 

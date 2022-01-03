@@ -10,6 +10,7 @@ import ComposableArchitecture
 import Models
 
 public enum CardsCore {
+
   // MARK: - State
 
   public struct State: Equatable {
@@ -44,6 +45,7 @@ public enum CardsCore {
     func isFavorite(with card: Card) -> Bool {
       return favorites.contains(where: { $0.id == card.id })
     }
+
     func isLastItem(_ item: UUID) -> Bool {
       let itemIndex = cards.firstIndex(where: { $0.id == item })
       return itemIndex == cards.endIndex - 1
@@ -106,6 +108,7 @@ public enum CardsCore {
           state.currentPage = 1
           return .concatenate(
             .init(value: .loadingActive(true)),
+            .init(value: .loadingPageActive(true)),
             environment.apiClient
               .cardsPage(state.currentPage, state.pageSize)
               .receive(on: environment.mainQueue)
@@ -117,12 +120,14 @@ public enum CardsCore {
 
         case .retrieveNextPageIfNeeded(currentItem: let item):
           guard state.isLastItem(item),
-                !state.isLoadingPage else {
+            !state.isLoadingPage
+          else {
             return .none
           }
 
           state.currentPage += 1
           return .concatenate(
+            .init(value: .loadingActive(true)),
             .init(value: .loadingPageActive(true)),
             environment.apiClient
               .cardsPage(state.currentPage, state.pageSize)
@@ -141,15 +146,14 @@ public enum CardsCore {
             .cancellable(id: CardsCancelId())
 
         case .cardsResponse(.success(let cards)):
-          let cardItems = IdentifiedArrayOf<CardDetailCore.State>(
-            uniqueElements: cards.cards.map {
-              CardDetailCore.State(
-                id: environment.uuid(),
-                card: $0
-              )
-            }
-          )
-          state.cards = cardItems
+          cards.cards.map {
+            CardDetailCore.State(
+              id: environment.uuid(),
+              card: $0
+            )
+          }.forEach {
+            state.cards.append($0)
+          }
           return .concatenate(
             .init(value: .loadingActive(false)),
             .init(value: .loadingPageActive(false))

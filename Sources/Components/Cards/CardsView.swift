@@ -65,32 +65,29 @@ extension CardsView {
       columns: [gridItem, gridItem, gridItem],
       alignment: .center,
       spacing: 16,
-      content: { cardsList(viewStore) }
-    )
-  }
-
-  @ViewBuilder
-  private func cardsList(_ viewStore: ViewStore<CardsCore.State, CardsCore.Action>) -> some View {
-    ForEachStore(
-      store.scope(
-        state: { $0.cards },
-        action: CardsCore.Action.card(id:action:)
-      ),
-      content: { cardStore in
-        WithViewStore(cardStore) { cardViewStore in
-          NavigationLink(
-            destination: CardDetailView(store: cardStore),
-            label: {
-              CardItemView(
-                card: cardViewStore.state.card,
-                isFavorite: viewStore.state.isFavorite(with: cardViewStore.state.card)
+      content: {
+        ForEachStore(
+          store.scope(
+            state: { $0.cards },
+            action: CardsCore.Action.card(id:action:)
+          ),
+          content: { cardStore in
+            WithViewStore(cardStore) { cardViewStore in
+              NavigationLink(
+                destination: CardDetailView(store: cardStore),
+                label: {
+                  CardItemView(
+                    card: cardViewStore.state.card,
+                    isFavorite: viewStore.state.isFavorite(with: cardViewStore.state.card)
+                  )
+                  .onAppear {
+                    viewStore.send(.retrieveNextPageIfNeeded(currentItem: cardViewStore.state.id))
+                  }
+                }
               )
-              .onAppear {
-                viewStore.send(.retrieveNextPageIfNeeded(currentItem: cardViewStore.state.id))
-              }
             }
-          )
-        }
+          }
+        )
       }
     )
   }

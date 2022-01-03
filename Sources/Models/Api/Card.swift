@@ -57,8 +57,8 @@ public struct Card: Decodable, Equatable, Identifiable {
 
 // MARK: Mock
 
-public extension Card {
-  static var mock1: Card {
+extension Card {
+  public static var mock1: Card {
     Card(
       id: "xy7-10",
       name: "Vespiquen",
@@ -68,7 +68,7 @@ public extension Card {
     )
   }
 
-  static var mock2: Card {
+  public static var mock2: Card {
     Card(
       id: "dp6-90",
       name: "Cubone",
@@ -78,7 +78,7 @@ public extension Card {
     )
   }
 
-  static var mock3: Card {
+  public static var mock3: Card {
     Card(
       id: "swsh4-175",
       name: "Drapion V",
@@ -88,7 +88,7 @@ public extension Card {
     )
   }
 
-  static var mock4: Card {
+  public static var mock4: Card {
     Card(
       id: "ex14-85",
       name: "Windstorm",
@@ -98,7 +98,7 @@ public extension Card {
     )
   }
 
-  static var mock5: Card {
+  public static var mock5: Card {
     Card(
       id: "pl2-103",
       name: "Alakazam 4",
@@ -108,7 +108,7 @@ public extension Card {
     )
   }
 
-  static var mock6: Card {
+  public static var mock6: Card {
     Card(
       id: "ex8-100",
       name: "Hariyama ex",
@@ -118,7 +118,7 @@ public extension Card {
     )
   }
 
-  static var mock7: Card {
+  public static var mock7: Card {
     Card(
       id: "xy7-4",
       name: "Bellossom",
@@ -128,7 +128,7 @@ public extension Card {
     )
   }
 
-  static var mock8: Card {
+  public static var mock8: Card {
     Card(
       id: "ex16-1",
       name: "Aggron",
@@ -138,7 +138,7 @@ public extension Card {
     )
   }
 
-  static var mock9: Card {
+  public static var mock9: Card {
     Card(
       id: "xy11-41",
       name: "Joltik",
@@ -148,7 +148,7 @@ public extension Card {
     )
   }
 
-  static var mock10: Card {
+  public static var mock10: Card {
     Card(
       id: "pl2-104",
       name: "Floatzel GL",

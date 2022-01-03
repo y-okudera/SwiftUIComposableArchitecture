@@ -49,7 +49,8 @@ public enum AppCore {
     var mainQueue: AnySchedulerOf<DispatchQueue>
     var uuid: () -> UUID
 
-    public init(localDatabaseClient: LocalDatabaseClient, apiClient: ApiClient, mainQueue: AnySchedulerOf<DispatchQueue>, uuid: @escaping () -> UUID) {
+    public init(localDatabaseClient: LocalDatabaseClient, apiClient: ApiClient, mainQueue: AnySchedulerOf<DispatchQueue>, uuid: @escaping () -> UUID)
+    {
       self.localDatabaseClient = localDatabaseClient
       self.apiClient = apiClient
       self.mainQueue = mainQueue

@@ -34,8 +34,8 @@ public struct LocalDatabaseClient {
 
 // MARK: - Mock
 
-public extension LocalDatabaseClient {
-  static func mock(
+extension LocalDatabaseClient {
+  public static func mock(
     fetchFavoriteCards: @escaping () -> Effect<[Card], Never> = { fatalError("Unmocked") },
     insertFavoriteCard: @escaping (Card) -> Effect<[Card], Never> = { _ in fatalError("Unmocked") },
     deleteFavoriteCard: @escaping (Card) -> Effect<[Card], Never> = { _ in fatalError("Unmocked") }
@@ -47,7 +47,7 @@ public extension LocalDatabaseClient {
     )
   }
 
-  static func mockPreview(
+  public static func mockPreview(
     fetchFavoriteCards: @escaping () -> Effect<[Card], Never> = { .init(value: [Card.mock1]) },
     insertFavoriteCard: @escaping (Card) -> Effect<[Card], Never> = { _ in .init(value: [Card.mock2]) },
     deleteFavoriteCard: @escaping (Card) -> Effect<[Card], Never> = { _ in .init(value: []) }
