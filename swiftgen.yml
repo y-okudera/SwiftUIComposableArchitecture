@@ -1,12 +1,12 @@
 strings:
   inputs:
-    - Sources/Support/Localization/en.lproj/Localizable.strings
+    - Application/iOS/Resouces/Localization/en.lproj/Localizable.strings
   outputs:
     - templateName: structured-swift5
-      output: Sources/Support/Localization/Generated/L10n-Constants.swift
+      output: Application/iOS/Resouces/Localization/Generated/L10n-Constants.swift
 xcassets:
   inputs:
-    - Sources/Support/DesignSystem/Assets/Assets.xcassets
+    - Application/iOS/Resouces/Assets/Assets.xcassets
   outputs:
     - templateName: swift5
-      output: Sources/Support/DesignSystem/Assets/Generated/Assets.swift
+      output: Application/iOS/Resouces/Assets/Generated/Assets.swift
